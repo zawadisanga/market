@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketHub - Global Marketplace</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-store"></i>MarketHub</div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="#" id="homeLink">Home</a>
+                <a href="#" id="sellLink">Sell</a>
+                <a href="#" id="messagesLink"><i class="fas fa-envelope"></i> Messages</a>
+                <a href="#" id="myProductsLink">My Items</a>
+                <a href="#" id="dashboardLink"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <div id="authLinks">
+                    <button id="loginBtn">Login</button>
+                    <button id="registerBtn">Sign Up</button>
+                </div>
+                <div id="userMenu" style="display:none">
+                    <img id="userAvatar" class="avatar-small">
+                    <span id="userName"></span>
+                    <span id="userBalance" class="balance-badge">$0</span>
+                    <div class="dropdown">
+                        <button id="logoutBtn">Logout</button>
+                        <button id="withdrawBtn">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Buy & Sell Anything, Anywhere</h1>
+        <p>20% commission | Safe transactions | Global shipping</p>
+        <button id="heroSellBtn">Start Selling</button>
+        <button id="heroBrowseBtn">Browse Products</button>
+    </div>
+
+    <div class="container">
+        <div id="productsView">
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+
+        <div id="sellView" style="display:none">
+            <div class="form-card">
+                <h2>List Your Product</h2>
+                <form id="sellForm" enctype="multipart/form-data">
+                    <input type="text" name="title" placeholder="Product Title" required>
+                    <textarea name="description" placeholder="Full description" required></textarea>
+                    <input type="number" name="price" placeholder="Price (USD)" required>
+                    <select name="category" required>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="cars">Cars & Vehicles</option>
+                        <option value="realestate">Real Estate</option>
+                        <option value="software">Software</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select name="condition" required>
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                    </select>
+                    <input type="text" name="location" placeholder="Location">
+                    <input type="text" name="brand" placeholder="Brand">
+                    <input type="tel" name="phoneNumber" placeholder="Your phone number for contact">
+                    <input type="file" name="images" multiple accept="image/*" required>
+                    <button type="submit">List Product</button>
+                </form>
+                <div class="info-box">
+                    <h4>Subscription Required</h4>
+                    <p>Basic Plan: $50/year (1 product category)<br>Premium Plan: $500/year (unlimited categories)</p>
+                    <button id="subscribeBasicBtn">Subscribe Basic ($50)</button>
+                    <button id="subscribePremiumBtn">Subscribe Premium ($500)</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="messagesView" style="display:none">
+            <div class="chat-container">
+                <div id="chatsList" class="chats-sidebar"></div>
+                <div class="chat-main">
+                    <div id="chatMessages" class="chat-messages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Type a message...">
+                        <button id="sendMessageBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="myProductsView" style="display:none">
+            <h2>My Products</h2>
+            <div id="myProductsGrid" class="products-grid"></div>
+        </div>
+
+        <div id="dashboardView" style="display:none">
+            <div class="dashboard">
+                <div class="stats-card">
+                    <h3>My Balance</h3>
+                    <div class="balance-large" id="dashboardBalance">$0</div>
+                    <button id="withdrawDashboardBtn">Withdraw Funds</button>
+                </div>
+                <div class="stats-card">
+                    <h3>Total Earned</h3>
+                    <div id="totalEarned">$0</div>
+                </div>
+                <div class="stats-card">
+                    <h3>Total Sales</h3>
+                    <div id="totalSales">0</div>
+                </div>
+                <div class="stats-card">
+                    <h3>Subscription</h3>
+                    <div id="subscriptionStatus">Not Active</div>
+                    <button id="upgradeBtn">Upgrade</button>
+                </div>
+                <div class="stats-card full-width">
+                    <h3>Recent Transactions</h3>
+                    <div id="transactionsList"></div>
+                </div>
+                <div class="stats-card full-width">
+                    <h3>Withdrawal History</h3>
+                    <div id="withdrawalsList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+            <p>No account? <a href="#" id="switchToRegister">Sign Up</a></p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Account</h2>
+            <form id="registerForm">
+                <input type="text" id="regFullName" placeholder="Full Name" required>
+                <input type="text" id="regUsername" placeholder="Username" required>
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <input type="tel" id="regPhone" placeholder="Phone Number" required>
+                <input type="text" id="regBankCard" placeholder="Bank Card Number">
+                <input type="text" id="regBankName" placeholder="Bank Name">
+                <input type="password" id="regPassword" placeholder="Password" required>
+                <input type="password" id="regConfirmPassword" placeholder="Confirm Password" required>
+                <button type="submit">Create Account</button>
+            </form>
+            <p>Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+        </div>
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <div id="productDetail"></div>
+        </div>
+    </div>
+
+    <div id="withdrawModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Withdraw Funds</h2>
+            <form id="withdrawForm">
+                <input type="number" id="withdrawAmount" placeholder="Amount (USD)" required min="10">
+                <input type="text" id="withdrawBankCard" placeholder="Bank Card Number">
+                <input type="text" id="withdrawBankName" placeholder="Bank Name">
+                <button type="submit">Request Withdrawal</button>
+            </form>
+            <p>Minimum withdrawal: $10 | Processing: 24-48 hours</p>
+        </div>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirm Purchase</h2>
+            <div id="orderDetails"></div>
+            <form id="orderForm">
+                <textarea id="buyerMessage" placeholder="Message to seller (optional)"></textarea>
+                <button type="submit">Confirm Purchase</button>
+            </form>
+            <p class="commission-note">* 20% commission will be deducted for platform fees</p>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
