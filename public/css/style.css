@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f5;
+    color: #1a1a2e;
+}
+
+.navbar {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #4F46E5;
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    background: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    background: #f0f0f0;
+    color: #4F46E5;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+}
+
+.avatar-small {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.balance-badge {
+    background: #10B981;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown button {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero button {
+    background: white;
+    color: #4F46E5;
+    margin: 1rem 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    padding: 1rem 1rem 0.5rem;
+    font-size: 1rem;
+}
+
+.product-card .price {
+    padding: 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4F46E5;
+}
+
+.product-card .seller {
+    padding: 0 1rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.product-card .actions {
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.product-card .actions button {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+}
+
+.buy-btn {
+    background: #10B981 !important;
+}
+
+.form-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.form-card input, .form-card textarea, .form-card select {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.form-card button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+}
+
+.info-box {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #FEF3C7;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.info-box button {
+    margin: 0.5rem;
+    width: auto;
+    padding: 0.5rem 1rem;
+}
+
+.chat-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1rem;
+    height: calc(100vh - 200px);
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.chats-sidebar {
+    background: #f9f9f9;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.chat-item:hover {
+    background: #f0f0f0;
+}
+
+.chat-item img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.chat-main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.message {
+    max-width: 70%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+}
+
+.message.sent {
+    background: #4F46E5;
+    color: white;
+    margin-left: auto;
+}
+
+.message.received {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.message .time {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+}
+
+.chat-input {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stats-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stats-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.balance-large {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #4F46E5;
+    margin: 1rem 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-large {
+    max-width: 700px;
+}
+
+.modal-content .close {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-content input, .modal-content textarea, .modal-content select {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.price-large {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #4F46E5;
+    margin: 1rem 0;
+}
+
+.commission-note {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.status.sold {
+    color: #EF4444;
+    font-weight: 600;
+}
+
+.delete-btn {
+    background: #EF4444;
+    margin-top: 0.5rem;
+}
+
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    z-index: 2000;
+    animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; }
+    .search-bar { max-width: 100%; }
+    .products-grid { grid-template-columns: 1fr; }
+    .chat-container { grid-template-columns: 1fr; height: auto; }
+    .chats-sidebar { max-height: 300px; }
+}
