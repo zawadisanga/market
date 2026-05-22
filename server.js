@@ -1,3 +1,13 @@
+// This should be at the VERY TOP of server.js
+require('dotenv').config();
+
+// Then check if JWT_SECRET exists
+if (!process.env.JWT_SECRET) {
+    console.error('ERROR: JWT_SECRET is not set in .env file!');
+    process.exit(1);
+}
+
+
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
